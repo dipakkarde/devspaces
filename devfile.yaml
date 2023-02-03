@@ -1,10 +1,13 @@
 schemaVersion: 2.1.0
 metadata:
-  name: empty-8rqw
-  namespace: che-kube-admin-devspaces-ki4hpa
-attributes: {}
+  name: my-project
 components:
-  - container:
-      image: 'registry.redhat.io/devspaces/udi-rhel8@sha256:aa39ede33bcbda6aa2723d271c79ab8d8fd388c7dfcbc3d4ece745b7e9c84193'
-      sourceMapping: /projects
-    name: universal-developer-image
+  - name: tools
+    container:
+      image: quay.io/devfile/universal-developer-image:ubi8-0e189d9
+      memoryLimit: 3Gi
+projects:   
+  - git:
+      remotes:
+        origin: 'https://github.com/rludva/dmaster.git'
+    name: my-project
